@@ -1,0 +1,10 @@
+#!/usr/bin/python
+HOME="/home/paul";
+def Reset():
+	fp=open(HOME+"/.usage/Current","w");
+	fp.write("0");
+	fp.close();
+	fp=open(HOME+"/.usage/Total","w");
+	fp.write("0");
+	fp.close();
+Reset()
