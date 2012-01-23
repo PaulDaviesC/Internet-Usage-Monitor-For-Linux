@@ -55,7 +55,9 @@ addCurrentWithTotal();
 while(1):
 	Current_Total=current_usage();
 	fp=open(HOME+"/.usage/Current","w");
-		if(Freetime()==0):
-			fp.write(str(Current_Total))
-			fp.close()
+	if(Freetime()==0):
+		fp.write(str(Current_Total))
+	else
+		fp.write("0")
+	fp.close()
 	time.sleep(10)
