@@ -6,6 +6,7 @@ sed -i 's|HOME=|HOME="'$HOME'"|' Initial.py
 sed -i 's|HOME=|HOME="'$HOME'"|' Reset
 chmod +x iusaged
 chmod +x Eusage
+chmod +x Reset
 cp iusaged Eusage Resetcron Initial.py $HOME/.usage
 echo 0 > $HOME/.usage/Total
 echo 0 > $HOME/.usage/Current
