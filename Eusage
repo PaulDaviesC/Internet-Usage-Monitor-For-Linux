@@ -51,10 +51,15 @@ def Usage():
 				break;
 		s=s/1000;
 def Help():
-	print "-c for changing the seetings\
+	print "-c for changing the settings\
 	       -h for help\
 	       -u for usage info\
 	       -r for reset"
+try:
+	sys.argv[1]
+except IndexError :
+	Help()
+	sys.exit()
 if(sys.argv[1]=="-r"):
 	Reset();
 elif(sys.argv[1]=="-u"):
