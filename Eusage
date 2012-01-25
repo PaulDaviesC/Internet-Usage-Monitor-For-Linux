@@ -34,21 +34,20 @@ def Usage():
 	fp=open(HOME+"/.usage/Total","r");
 	usage=usage+int(fp.read());
 	fp.close();
+	usage=Format_usage(usage);
+	print usage
+def Format_usage(usage):
 	s=1000000000;
 	while(s>1):
 		if((usage/s)>1):
 			if(s==1000000000):
-				print str((float)(usage)/s)+" GB";
-				break;
+				return str((float)(usage)/s)+" GB";
 			elif(s==1000000):
-				print str((float)(usage)/s)+" MB";
-				break;
+				return str((float)(usage)/s)+" MB";
 			elif(s==1000):
-				print str((float)(usage)/s)+" KB";
-				break;
+				return str((float)(usage)/s)+" KB";
 			else :
-				print str((float)(usage)/s)+" B";
-				break;
+				return str((float)(usage)/s)+" B";
 		s=s/1000;
 def History(month,year):
 	fp=open(HOME+"/.usage/History")
@@ -56,12 +55,13 @@ def History(month,year):
 	for line in block:
 		if(line.startswith(year+" : "+month)):
 			y,m,usage=line.split(":")
+			usage=int(usage);
 			break;
 	fp.close()
 	try:
-		print "Usage for "+month+"-"+year+" is "+usage
+		print "Usage for "+month+"-"+year+" is "+Format_usage(usage);
 	except UnboundLocalError:
-		print "No record of the date"	
+		print "No record for the date"	
 def Help():
 	print "-c for changing the settings\
 	       -h for help\
