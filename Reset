@@ -18,5 +18,5 @@ def addToHistory():
 		fp.write(str(t.tm_year-1)+" : 12 "+" : "+str(usage)+"\n");
 	else:
 		fp.write(str(t.tm_year)+" : "+str(t.tm_mon)+" : "+str(usage)+"\n");
-#reset()
+reset()
 addToHistory();
