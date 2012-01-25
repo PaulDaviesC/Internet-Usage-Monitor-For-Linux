@@ -50,11 +50,24 @@ def Usage():
 				print str((float)(usage)/s)+" B";
 				break;
 		s=s/1000;
+def History(month,year):
+	fp=open(HOME+"/.usage/History")
+	block=fp.readlines()
+	for line in block:
+		if(line.startswith(year+" : "+month)):
+			y,m,usage=line.split(":")
+			break;
+	fp.close()
+	try:
+		print "Usage for "+month+"-"+year+" is "+usage
+	except UnboundLocalError:
+		print "No record of the date"	
 def Help():
 	print "-c for changing the settings\
 	       -h for help\
 	       -u for usage info\
-	       -r for reset"
+	       -r for reset\
+		-H month year for returning the usage value of that month in given year"
 try:
 	sys.argv[1]
 except IndexError :
@@ -66,6 +79,11 @@ elif(sys.argv[1]=="-u"):
 	Usage();
 elif(sys.argv[1]=="-c"):
 	Settime();
+elif(sys.argv[1]=="-H"):
+	try:
+		History(sys.argv[2],sys.argv[3])
+	except IndexError:
+		Help()
 elif(sys.argv[1]=="-h"):
 	print Help()
 else:
