@@ -2,7 +2,7 @@
 import os
 import time
 import pickle
-HOME="/home/paul";
+HOME=;
 class FromTo:
 	def __init__(self,frm,to):
 		self.frm=frm;

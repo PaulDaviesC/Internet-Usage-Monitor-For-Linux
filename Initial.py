@@ -1,4 +1,4 @@
-HOME="/home/paul";
+HOME=;
 import os
 import pickle
 class FromTo:
